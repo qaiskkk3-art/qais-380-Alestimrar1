@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>استمارة تسجيل كابتن توصيل | النجف دلفري - Najaf Delivery</title>
+  <meta name="description" content="استمارة التقديم الرسمية لتسجيل كباتن وسائقي التوصيل (سيارة أو دراجة نارية) في النجف عبر واتساب.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- شريط رأس الاستمارة -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="brand-link" id="logoHeaderBtn">
+        <div class="brand-icon-box">🛵</div>
+        <div class="brand-text">
+          <span class="brand-title"> Alestimrar company </span>
+          <span class="brand-subtitle">استمارة انضمام الكباتن الرسمية</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- الحاوية الرئيسية -->
+  <main class="main-form-wrapper">
+    <div class="container">
+      
+      <!-- الشاشة 1: اختيار وسيلة النقل -->
+      <div id="vehicleSelectScreen" class="vehicle-screen-active">
+        
+        <div class="form-header-banner" style="text-align: center; max-width: 680px; margin: 0 auto 35px;">
+          <div class="badge-tat"> استمارة تسجيل سائقين في محافظة النجف </div>
+          <div class="badge-tag">الخطوة الأولى • اختيار فئة القيادة</div>
+          
+          <h1 class="main-form-title">اختر وسيلة التوصيل التي ستقودها في محافظة النجف</h1>
+          <p class="main-form-desc">
+            حدد نوع مركبتك لفتح استمارة التسجيل والأسئلة الخاصة بها تلقائياً (الأسئلة والشروط تتكيف تماماً بحسب نوع المركبة).
+          </p>
+        </div>
+
+        <div class="vehicle-choice-grid-two">
+          
+          <!-- كابتن دراجة نارية -->
+          <div class="vehicle-choice-card" data-vehicle="motorcycle">
+            <div class="vehicle-choice-img">
+              <img src="poto/dae.png" alt="دراجة نارية للتوصيل">
+              <span class="vehicle-choice-badge">الأعلى سرعة وطلباً</span>
+            </div>
+            <div class="vehicle-choice-info">
+              <div class="vehicle-choice-icon-title">
+                <span class="icon">🏍️</span>
+                <h3>كابتن دراجة نارية (ماطور)</h3>
+              </div>
+              <p class="desc">توصيل اسرع تخطي الازدحامات في النجف طلبات اكثر</p>
+              <div class="quick-points">
+                <span>✓ إنجاز سريع طلبات اكثر</span>
+                <span>✓ استهلاك بنزين اقتصادي</span>
+              </div>
+              <button type="button" class="btn-start-form">
+                <span>اختيار الدراجة النارية ومتابعة الأسئلة</span>
+                <span>←</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- كابتن سيارة خاصة -->
+          <div class="vehicle-choice-card" data-vehicle="car">
+            <div class="vehicle-choice-img">
+              <img src="poto/cor.png" alt="سيارة توصيل خاصة">
+              <span class="vehicle-choice-badge">راحة قصوى وطرود كبيرة</span>
+            </div>
+            <div class="vehicle-choice-info">
+              <div class="vehicle-choice-icon-title">
+                <span class="icon">🚗</span>
+                <h3>كابتن سيارة خاصة</h3>
+              </div>
+              <p class="desc">
+                توصيل مكيف ومريح صيفاً وشتاءً. مخصص لنقل طرود المتاجر والشركات، وتوصيل طلبيات متعددة في جولة شحن واحدة.
+              </p>
+              <div class="quick-points">
+                <span>✓ طرود كبيرة وبضائع ثمينة</span>
+                <span>✓ حوافز مسافات إضافية</span>
+              </div>
+              <button type="button" class="btn-start-form">
+                <span>اختيار السيارة الخاصة ومتابعة الأسئلة</span>
+                <span>←</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- الشاشة 2: استمارة التسجيل -->
+      <div id="formContainer" class="form-container-hidden">
+        
+        <div class="form-card">
+          
+          <div class="selected-vehicle-banner">
+            <div class="selected-v-info">
+              <span class="sub-label">أنت تملأ الآن استمارة التقديم لـ:</span>
+              <div class="title-with-icon">
+                <span id="selectedVehicleEmoji" style="font-size: 24px;">🏍️</span>
+                <strong id="selectedVehicleName" style="color: #fff; font-size: 1.15rem;">كابتن دراجة نارية (ماطور)</strong>
+              </div>
+            </div>
+
+            <button type="button" id="changeVehicleBtn" class="btn-change-vehicle" title="الرجوع واختيار وسيلة نقل أخرى">
+              <span>تغيير نوع المركبة</span>
+              <span>🔄</span>
+            </button>
+          </div>
+
+          <div class="form-steps-indicator">
+            <button type="button" class="step-indicator-btn active" data-stage="1">
+              <span class="indicator-number">1</span>
+              <div class="indicator-text">
+                <span class="stage-sub">المرحلة 1</span>
+                <strong class="stage-name">المعلومات الشخصية</strong>
+              </div>
+            </button>
+            
+            <button type="button" class="step-indicator-btn" data-stage="2">
+              <span class="indicator-number">2</span>
+              <div class="indicator-text">
+                <span class="stage-sub">المرحلة 2</span>
+                <strong class="stage-name">نظام العمل والدوام</strong>
+              </div>
+            </button>
+            
+            <button type="button" class="step-indicator-btn" data-stage="3">
+              <span class="indicator-number">3</span>
+              <div class="indicator-text">
+                <span class="stage-sub">المرحلة 3</span>
+                <strong class="stage-name" id="stage3TabTitle">أسئلة المركبة</strong>
+              </div>
+            </button>
+            
+            <button type="button" class="step-indicator-btn" data-stage="4">
+              <span class="indicator-number">4</span>
+              <div class="indicator-text">
+                <span class="stage-sub">المرحلة 4</span>
+                <strong class="stage-name">المستندات والإرسال</strong>
+              </div>
+            </button>
+          </div>
+
+          <form id="driverForm">
+            
+            <!-- المرحلة 1 -->
+            <div id="stage1" class="form-stage active">
+              <div class="stage-banner">
+                <h2 class="stage-title">1. المعلومات الشخصية</h2>
+                <p class="stage-desc">بياناتك الأساسية للاتصال وتوثيق الطلب لدى إدارة النجف دلفري.</p>
+              </div>
+
+              <div class="input-block full">
+                <label class="field-label" for="fullName">الاسم الكامل (كما في البطاقة الوطنية) <span class="req">*</span></label>
+                <input type="text" id="fullName" placeholder="مثال: حيدر كريم جاسم الزبيدي">
+                <span class="field-error-msg">يرجى كتابة الاسم واللقب أو الاسم الثلاثي</span>
+              </div>
+
+              <div class="form-grid">
+                <div class="input-block">
+                  <label class="field-label" for="phoneNumber">رقم الهاتف العراقي (واتساب) <span class="req">*</span></label>
+                  <input type="tel" id="phoneNumber" placeholder="0770 123 4567" dir="ltr">
+                  <span class="field-hint">يبدأ بـ 07 وطوله 11 رقماً ومفعل عليه واتساب</span>
+                  <span class="field-error-msg">يرجى إدخال رقم هاتف عراقي صحيح</span>
+                </div>
+
+                <div class="input-block">
+                  <label class="field-label" for="alternatePhone">رقم هاتف بديل للطوارئ (اختياري)</label>
+                  <input type="tel" id="alternatePhone" placeholder="0780 000 0000" dir="ltr">
+                  <span class="field-hint">للتواصل في حال إغلاق الخط الأول</span>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="input-block">
+                  <label class="field-label" for="birthDateOrAge">العمر أو سنة التولد <span class="req">*</span></label>
+                  <input type="text" id="birthDateOrAge" placeholder="مثال: 24 سنة (أو تولد 2002)">
+                  <span class="field-error-msg">يرجى إدخال العمر أو التولد (18 سنة فما فوق)</span>
+                </div>
+
+                <div class="input-block">
+                  <label class="field-label" for="district">منطقة السكن الحالية في النجف <span class="req">*</span></label>
+                  <select id="district">
+                    <option value="">-- اختر منطقتك في النجف --</option>
+                    <option value="حي الحنانة">حي الحنانة</option>
+                    <option value="حي السلام">حي السلام</option>
+                    <option value="حي الأمير">حي الأمير</option>
+                    <option value="حي الغدير">حي الغدير</option>
+                    <option value="حي المعلمين">حي المعلمين</option>
+                    <option value="حي الجامعة">حي الجامعة</option>
+                    <option value="حي الميلاد">حي الميلاد</option>
+                    <option value="حي الإسكان">حي الإسكان</option>
+                    <option value="حي الزهراء">حي الزهراء</option>
+                    <option value="حي العسكري">حي العسكري</option>
+                    <option value="حي الروان">حي الروان</option>
+                    <option value="حي الضباط">حي الضباط</option>
+                    <option value="حي الحويش">حي الحويش</option>
+                    <option value="حي المبروكة">حي المبروكة</option>
+                    <option value="حي الصحة">حي الصحة</option>
+                    <option value="حي الصناعة">حي الصناعة</option>
+                    <option value="حي المكرمة">حي المكرمة</option>
+                    <option value="حي النصر">حي النصر</option>
+                    <option value="حي الغري">حي الغري</option>
+                    <option value="حي الوفاء">حي الوفاء</option>
+                    <option value="البلدة القديمة (مركز النجف)">البلدة القديمة (مركز النجف)</option>
+                    <option value="قضاء الكوفة">قضاء الكوفة</option>
+                    <option value="قضاء المناذرة (أبو صخير)">قضاء المناذرة (أبو صخير)</option>
+                    <option value="قضاء الحيرة">قضاء الحيرة</option>
+                    <option value="ناحية الحرية">ناحية الحرية</option>
+                    <option value="ناحية القادسية">ناحية القادسية</option>
+                    <option value="ناحية العباسية">ناحية العباسية</option>
+                    <option value="منطقة أخرى في النجف">منطقة أخرى في النجف</option>
+                  </select>
+                  <span class="field-error-msg">يرجى تحديد منطقة السكن في النجف</span>
+                </div>
+              </div>
+
+              <div class="input-block full">
+                <label class="field-label" for="landmark">أقرب نقطة دالة لمنزلك <span class="req">*</span></label>
+                <input type="text" id="landmark" placeholder="مثال: قرب جامع الكوفة، خلف مول النجف، فرع مدرسة الإمام علي...">
+                <span class="field-error-msg">يرجى كتابة أقرب نقطة دالة</span>
+              </div>
+            </div>
+
+            <!-- المرحلة 2 -->
+            <div id="stage2" class="form-stage">
+              <div class="stage-banner">
+                <h2 class="stage-title">2. تفضيلات ونظام العمل</h2>
+                <p class="stage-desc">حدد نظام الدوام وساعات العمل المفضلة في المحافظة.</p>
+              </div>
+
+              <!-- نوع الدوام -->
+              <div class="input-block">
+                <label class="field-label">نوع الدوام المفضل <span class="req">*</span></label>
+                <div class="tiles-grid">
+                  <label class="tile-card selected">
+                    <input type="radio" name="shiftType" value="دوام كامل" checked>
+                    <strong>دوام كامل</strong>
+                    <span>تفرغ تام - أعلى دخل أسبوعي</span>
+                  </label>
+                  <label class="tile-card">
+                    <input type="radio" name="shiftType" value="دوام جزئي">
+                    <strong>دوام جزئي</strong>
+                    <span>ساعات محددة يومياً تناسب وقتك</span>
+                  </label>
+                  <label class="tile-card">
+                    <input type="radio" name="shiftType" value="دوام حر ومرن">
+                    <strong>دوام حر ومرن</strong>
+                    <span>حرية تشغيل التطبيق في أي وقت</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- مناطق العمل المفضلة -->
+              <div class="input-block">
+                <label class="field-label">مناطق التوصيل المفضلة في النجف <span class="req">*</span></label>
+                <div class="tiles-grid" style="grid-template-columns: repeat(2, 1fr);">
+                  <label class="tile-card selected">
+                    <input type="checkbox" name="preferredAreas" value="مركز مدينة النجف بالكامل" checked>
+                    <strong>مركز مدينة النجف بالكامل</strong>
+                  </label>
+                  <label class="tile-card selected">
+                    <input type="checkbox" name="preferredAreas" value="قضاء الكوفة بالكامل" checked>
+                    <strong>قضاء الكوفة بالكامل</strong>
+                  </label>
+                  <label class="tile-card">
+                    <input type="checkbox" name="preferredAreas" value="قضاء المناذرة (أبو صخير)">
+                    <strong>قضاء المناذرة (أبو صخير)</strong>
+                  </label>
+                  <label class="tile-card">
+                    <input type="checkbox" name="preferredAreas" value="قضاء الحيرة وناحية الحرية">
+                    <strong>قضاء الحيرة وناحية الحرية</strong>
+                  </label>
+                </div>
+                <span id="areasErrorHint" class="field-hint">يمكنك اختيار أكثر من منطقة بحسب رغبتك</span>
+              </div>
+
+              <!-- أوقات العمل والخبرة -->
+              <div class="form-grid">
+                <div class="input-block">
+                  <label class="field-label" for="workHours">أوقات العمل المتاحة لك</label>
+                  <select id="workHours">
+                    <option value="ساعات مرنة وحرة (طوال اليوم بحسب وقتي)">ساعات مرنة وحرة (طوال اليوم بحسب وقتي)</option>
+                    <option value="فترة صباحية (8:00 صباحاً - 4:00 عصراً)">فترة صباحية (8:00 صباحاً - 4:00 عصراً)</option>
+                    <option value="فترة مسائية (4:00 عصراً - 12:00 منتصف الليل)">فترة مسائية (4:00 عصراً - 12:00 منتصف الليل)</option>
+                    <option value="فترة ليلية متأخرة (12:00 ليلاً - 6:00 صباحاً)">فترة ليلية متأخرة (12:00 ليلاً - 6:00 صباحاً)</option>
+                  </select>
+                </div>
+
+                <div class="input-block">
+                  <label class="field-label" for="experience">الخبرة السابقة في مجال التوصيل</label>
+                  <select id="experience">
+                    <option value="خبرة ممتازة في تطبيقات التوصيل الأخرى">خبرة ممتازة في تطبيقات التوصيل (توتيرز، طلبات، ليزو...)</option>
+                    <option value="خبرة في توصيل المطاعم والمحلات المحلية">خبرة في توصيل المطاعم والمحلات المحلية في النجف</option>
+                    <option value="معرفة جيدة بشوارع النجف ومبتدئ بالتوصيل">معرفة جيدة بشوارع النجف ومبتدئ بالتوصيل</option>
+                    <option value="جديد ومتحمس للتدريب والانطلاق">جديد تماماً ومتحمس للتدريب والانطلاق</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- المرحلة 3 -->
+            <div id="stage3" class="form-stage">
+              
+              <div id="motorcycleQuestionsSection">
+                <div class="stage-banner">
+                  <div class="badge-tag" style="background: rgba(249, 115, 22, 0.15);">🏍️ أسئلة كابتن الدراجة النارية</div>
+                  <h2 class="stage-title">3. بيانات ومواصفات الدراجة النارية</h2>
+                  <p class="stage-desc">الأسئلة والشروط الفنية المخصصة لقيادة وتوصيل الدراجات في النجف.</p>
+                </div>
+
+                <div class="form-grid">
+                  <div class="input-block">
+                    <label class="field-label" for="motoMakeModel">نوع وموديل الدراجة النارية <span class="req">*</span></label>
+                    <input type="text" id="motoMakeModel" placeholder="مثال: ياماها 150، بطة، دايون، سكوتر...">
+                    <span class="field-error-msg">يرجى كتابة نوع وموديل الدراجة</span>
+                  </div>
+
+                  <div class="input-block">
+                    <label class="field-label" for="motoEngineSize">سعة وحجم المحرك (CC) <span class="req">*</span></label>
+                    <select id="motoEngineSize">
+                      <option value="150cc">150 CC (الأكثر شيوعاً)</option>
+                      <option value="125cc">125 CC</option>
+                      <option value="100cc">100 CC (بطة)</option>
+                      <option value="200cc_plus">أكبر من 200 CC</option>
+                      <option value="electric">دراجة كهربائية حديثة</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-grid">
+                  <div class="input-block">
+                    <label class="field-label" for="motoColor">لون الدراجة النارية <span class="req">*</span></label>
+                    <input type="text" id="motoColor" placeholder="مثال: أسود، أحمر، أبيض...">
+                    <span class="field-error-msg">يرجى كتابة لون الدراجة</span>
+                  </div>
+
+                  <div class="input-block">
+                    <label class="field-label" for="motoPlate">رقم اللوحة المرورية أو التسجيل <span class="req">*</span></label>
+                    <input type="text" id="motoPlate" placeholder="مثال: النجف 12345 دراجة أو فحص مؤقت">
+                    <span class="field-error-msg">يرجى كتابة رقم لوحة الدراجة</span>
+                  </div>
+                </div>
+
+                <div class="form-grid">
+                  <div class="input-block">
+                    <label class="field-label" for="motoLicense">هل تملك إجازة سوق دراجة نارية نافذة؟ <span class="req">*</span></label>
+                    <select id="motoLicense">
+                      <option value="yes">نعم، إجازة سوق دراجة نافذة وسارية</option>
+                      <option value="private_car_license">أملك إجازة سوق سيارة خصوصي</option>
+                      <option value="no">لا أملك إجازة سوق حالياً</option>
+                    </select>
+                  </div>
+
+                  <div class="input-block">
+                    <label class="field-label" for="motoHelmet">توفر خوذة رأس أمان معتمدة <span class="req">*</span></label>
+                    <select id="motoHelmet">
+                      <option value="متوفرة وجاهزة">متوفرة وجاهزة للعمل بها فوراً</option>
+                      <option value="أحتاج استلام خوذة من الشركة">غير متوفرة وأحتاج استلام خوذة من إدارة الشركة</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-grid">
+                  <div class="input-block">
+                    <label class="field-label" for="motoPhoneMount">حامل هاتف مثبت على مقود الدراجة (Phone Mount)</label>
+                    <select id="motoPhoneMount">
+                      <option value="نعم مثبت وجاهز لتتبع الخرائط">نعم مثبت وجاهز لتتبع الخرائط والـ GPS</option>
+                      <option value="سأقوم بتركيبه قبل بدء العمل">غير مركب وسأقوم بتركيبه قبل بدء العمل</option>
+                    </select>
+                  </div>
+
+                  <div class="input-block">
+                    <label class="field-label" for="motoThermalBag">حقيبة الظهر الحرارية للطعام</label>
+                    <select id="motoThermalBag">
+                      <option value="متوفرة لدي وتصلح للعمل">متوفرة لدي وتصلح للعمل</option>
+                      <option value="أحتاج استلام حقيبة ظهر حرارية من الشركة">أحتاج استلام حقيبة ظهر حرارية رسمية من الشركة</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div id="carQuestionsSection" style="display: none;">
+                <div class="stage-banner">
+                  <div class="badge-tag" style="background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border-color: rgba(16, 185, 129, 0.3);">🚗 أسئلة كابتن السيارة الخاصة</div>
+                  <h2 class="stage-title">3. بيانات ومواصفات السيارة الخاصة</h2>
+                  <p class="stage-desc">الأسئلة والشروط الفنية المخصصة لنقل وتوصيل الطرود بالسيارة في النجف.</p>
+                </div>
+
+                <div class="form-grid">
+                  <div class="input-block">
+                    <label class="field-label" for="carMakeModel">الشركة المصنعة والموديل <span class="req">*</span></label>
+                    <input type="text" id="carMakeModel" placeholder="مثال: تويوتا كورولا، كيا سيراتو، هيونداي أكسنت...">
+                    <span class="field-error-msg">يرجى كتابة موديل ونوع السيارة</span>
+                  </div>
+
+                  <div class="input-block">
+                    <label class="field-label" for="carYear">سنة الصنع أو الموديل <span class="req">*</span></label>
+                    <input type="text" id="carYear" placeholder="مثال: 2020 أو 2018...">
+                    <span class="field-error-msg">يرجى كتابة سنة الصنع</span>
+                  </div>
+                </div>
+
+                <div class="form-grid">
+                  <div class="input-block">
+                    <label class="field-label" for="carBodyType">فئة ونوع الهيكل <span class="req">*</span></label>
+                    <select id="carBodyType">
+                      <option value="سيدان (صالون 4 أبواب)">سيدان (صالون 4 أبواب)</option>
+                      <option value="هاتشباك (5 أبواب)">هاتشباك (5 أبواب)</option>
+                      <option value="كروس أوفر / SUV جيب">كروس أوفر / SUV جيب</option>
+                      <option value="ستيشن عائلي">ستيشن عائلي</option>
+                    </select>
+                  </div>
+
+                  <div class="input-block">
+                    <label class="field-label" for="carColor">لون السيارة <span class="req">*</span></label>
+                    <input type="text" id="carColor" placeholder="مثال: أبيض، رصاصي، أسود...">
+                    <span class="field-error-msg">يرجى كتابة لون السيارة</span>
+                  </div>
+                </div>
+
+                <div class="form-grid">
+                  <div class="input-block">
+                    <label class="field-label" for="carPlate">رقم اللوحة والمحافظة <span class="req">*</span></label>
+                    <input type="text" id="carPlate" placeholder="مثال: النجف 12345 خصوصي أو الكوفة...">
+                    <span class="field-error-msg">يرجى كتابة رقم اللوحة</span>
+                  </div>
+
+                  <div class="input-block">
+                    <label class="field-label" for="carAcCondition">كفاءة تبريد المكيف (Air Conditioning) <span class="req">*</span></label>
+                    <select id="carAcCondition">
+                      <option value="يعمل بكفاءة ممتازة (صيفاً وشتاءً)">يعمل بكفاءة ممتازة (صيفاً وشتاءً)</option>
+                      <option value="يعمل بحالة متوسطة">يعمل بحالة متوسطة</option>
+                      <option value="بحاجة لصيانة بسيطة">بحاجة لصيانة بسيطة</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-grid">
+                  <div class="input-block">
+                    <label class="field-label" for="carLicense">توفر إجازة سوق خصوصي أو عمومي نافذة <span class="req">*</span></label>
+                    <select id="carLicense">
+                      <option value="yes">نعم، إجازة سوق خصوصي نافذة</option>
+                      <option value="public_license">نعم، إجازة سوق عمومي نافذة</option>
+                      <option value="no">لا أمتلك إجازة سوق حالياً</option>
+                    </select>
+                  </div>
+
+                  <div class="input-block">
+                    <label class="field-label" for="carTrunkCapacity">سعة صندوق السيارة الخلفي للطرود والكراتين</label>
+                    <select id="carTrunkCapacity">
+                      <option value="صندوق واسع يتسع لعدة كراتين وطرود كبيرة">صندوق واسع يتسع لعدة كراتين وطرود كبيرة</option>
+                      <option value="صندوق متوسط الحجم">صندوق متوسط الحجم</option>
+                      <option value="صندوق مخصص للطلبيات الخفيفة">صندوق مخصص للطلبيات الخفيفة</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="input-block full">
+                  <label class="field-label" for="carMultiDrop">الاستعداد لتوصيل مسارات طرود متعددة (Multi-Drop) لمتاجر التسوق الإلكتروني</label>
+                  <select id="carMultiDrop">
+                    <option value="نعم جاهز تماماً لتوصيل 10-20 طرداً في جولة واحدة">نعم جاهز تماماً لتوصيل 10-20 طرداً في جولة واحدة (أعلى دخل)</option>
+                    <option value="أفضّل الطلبات الفردية المباشرة فقط">أفضّل الطلبات الفردية المباشرة فقط</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- المرحلة 4 -->
+            <div id="stage4" class="form-stage">
+              <div class="stage-banner">
+                <h2 class="stage-title">4. المستندات والمعاينة النهائية</h2>
+                <p class="stage-desc">تأكد من توفر صور المستمسكات المطلوبة قبل توليد وإرسال ملخص الطلب إلى واتساب.</p>
+              </div>
+
+              <div class="privacy-alert-box">
+                <strong>🔒 حماية الخصوصية وأمان المستمسكات الرسمية:</strong>
+                <p style="margin-top: 4px;">
+                  حفاظاً على سرية بياناتك الشخصية، لن يتم إرسال أي صورة من مستمسكاتك الحساسة عبر رابط أو نص واتساب إطلاقاً.
+                  المعاينة هنا محلية على هاتفك للتأكد من جاهزيتها، وسيُطلب منك إبراز النسخ الأصلية ومطابقتها شخصياً عند المقابلة في مقر النجف دلفري في حي الحنانة.
+                </p>
+              </div>
+
+              <div class="input-block full">
+                <label class="field-label" for="notes">أي ملاحظات أو استفسار تود إضافته لإدارة التوظيف (اختياري)</label>
+                <textarea id="notes" rows="2" placeholder="مثال: جاهز للبدء من الغد، أفضّل العمل في مركز النجف..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-footer-buttons">
+              <button type="button" id="prevStageBtn" class="btn-secondary" style="display: none;">← السابق</button>
+              <div style="flex: 1;"></div>
+              <button type="button" id="nextStageBtn" class="btn-primary">المتابعة للمرحلة التالية ←</button>
+              <button type="submit" id="submitWhatsAppBtn" class="btn-whatsapp-send" style="display: none;">
+                <span>💬 إرسال طلب التسجيل إلى واتساب</span>
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- نافذة واتساب -->
+  <div id="waModal" class="modal-overlay">
+    <div class="modal-card">
+      <button type="button" id="closeModalBtn" class="modal-close-btn">&times;</button>
+      
+      <span class="modal-badge">✓ تم تجهيز بيانات الطلب لفتح واتساب</span>
+      <h3 class="modal-title">اضغط «إرسال» داخل واتساب لإتمام الطلب</h3>
+      <p style="font-size: 0.8rem; color: var(--text-muted);">
+        تم توليد المعرف المرجعي المحلي: <strong id="modalRefText" style="color: var(--orange);">ND-26-00000</strong> (طلب محلي غير مسجل في قاعدة بيانات سحابية).
+      </p>
+
+      <div class="modal-notice-banner">
+        ⚠️ <strong>تنبيه هام:</strong> الموقع لا يستطيع معرفة ما إذا ضغطت على زر الإرسال فعلاً داخل تطبيق واتساب بسبب سياسات الخصوصية لرابط wa.me. يرجى التأكد من الضغط على زر الإرسال (Send) بمجرد فتح المحادثة.
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
+        <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: bold;">معاينة نص الرسالة المجهزة:</span>
+        <button type="button" id="copyMsgBtn" style="background: none; border: none; color: var(--orange); font-size: 0.78rem; cursor: pointer; font-weight: bold; font-family: inherit;">
+          نسخ النص بالكامل
+        </button>
+      </div>
+
+      <div id="modalMsgText" class="modal-message-preview"></div>
+
+      <div style="margin-top: 16px;">
+        <a id="modalOpenWaBtn" href="#" target="_blank" class="btn-whatsapp-send" style="width: 100%; justify-content: center; text-decoration: none;">
+          فتح واتساب الآن مجدداً
+        </a>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-dim); margin-top: 12px;">
+        <span>الرقم المستلم: <strong id="modalTargetNumber" style="color: #fff;" dir="ltr">+9647700000000</strong></span>
+        <span>إذا لم يفتح التطبيق، انسخ النص وأرسله يدوياً للرقم أعلاه.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- تذييل الصفحة -->
+  <footer class="footer">
+    <div class="container" style="text-align: center;">
+      <p style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 6px;">
+        <strong>Alestimrar company</strong> — استمارة تسجيل كباتن التوصيل (دراجات نارية وسيارات خاصة)
+      </p>
+      <p style="font-size: 0.75rem; color: var(--text-dim);">
+        مقر الإدارة:: <span class="active-wa-display" dir="ltr">+9647700000000</span>
+      </p>
+      <p style="font-size: 0.72rem; color: var(--text-dim); margin-top: 8px;">
+        جميع الحقوق محفوظة © 2026. بيانات ووثائق المتقدمين تخضع لأعلى معايير حماية الخصوصية.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
